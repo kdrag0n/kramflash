@@ -10,8 +10,6 @@ The flasher script, flash.sh, must be installed as the init script in an Alpine 
 - `magiskboot` tool from Magisk placed in PATH
 - `reboot_with_cmd` tool (source code available in this repo) placed in PATH
 
-Additionally, the kernel must be built with `CONFIG_DEVTMPFS=y` for the script to work properly.
-
 For the flasher to show output rather than appearing to freeze and crash at the bootloader splash, the kernel console needs to be configured to display output to the user. The easiest way to do this is to enable and use the default fbcon console and make it render to simplefb, backed by the continuous splash framebuffer that the bootloader sets up before starting Linux.
 
 If a console is present, adding `loglevel=2` to the kernel command-line is recommended to reduce spammy output and speed up boot significantly.
@@ -28,13 +26,7 @@ DTBO flashing is not currently supported.
 
 ## Kernel changes
 
-The flashed kernel payload should not be changed in any way. However, the flasher itself uses a kernel because it is essentially a custom bootable recovery, and the kernel needs small changes at minimum to work in the flasher.
-
-Mandatory changes:
-
-- Enable `CONFIG_DEVTMPFS` ([example](https://github.com/kdrag0n/proton_kernel_redbull/commit/c227c0b7727ff358898f29058956eac00385bf0d))
-
-Nice-to-have changes:
+The flashed kernel payload should not be changed in any way. However, the flasher itself uses a kernel because it is essentially a custom bootable recovery. No changes to the kernel are strictly necessary, but they improve the user experience significantly:
 
 - For easier debugging on newer kernels (4.14+): add `printk.devkmsg=on` to cmdline ([example](https://github.com/kdrag0n/proton_kernel_redbull/commit/bc1bbca33cb2b08a267589847bf70ec56d64e542))
 - Reduce kernel size to reduce the flasher size: [example](https://github.com/kdrag0n/proton_kernel_redbull/commit/6f5149c116cfa59eb8880090f9b894bb4a2d5d32)
