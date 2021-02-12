@@ -36,10 +36,13 @@ on_exit() {
 trap on_exit EXIT
 
 # Mount essential pseudo-filesystems
-mount -t devtmpfs devtmpfs /dev
+mount -t tmpfs tmpfs /dev
 mount -t proc proc /proc
 mount -t sysfs sysfs /sys
 mount -t tmpfs tmpfs /tmp
+
+# Populate /dev without devtmpfs
+mdev -s
 
 find_part_by_name() {
     partnum="$(sgdisk -p "$BLOCK_DEV" | grep " $1$" | head -n1 | awk '{print $1}')"
