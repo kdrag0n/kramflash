@@ -29,8 +29,8 @@ DTBO flashing is not currently supported.
 The flashed kernel payload should not be changed in any way. However, the flasher itself uses a kernel because it is essentially a custom bootable recovery. No changes to the kernel are strictly necessary, but they improve the user experience significantly:
 
 - For easier debugging on newer kernels (4.14+): add `printk.devkmsg=on` to cmdline ([example](https://github.com/kdrag0n/proton_kernel_redbull/commit/bc1bbca33cb2b08a267589847bf70ec56d64e542))
-- Reduce kernel size to reduce the flasher size: [example](https://github.com/kdrag0n/proton_kernel_redbull/commit/6f5149c116cfa59eb8880090f9b894bb4a2d5d32)
-- Framebuffer console for live feedback, otherwise it just looks like the flasher crashed even if it succeeded: [example framebuffer](https://github.com/kdrag0n/proton_kernel_redbull/commit/51f31de9dddf826e5be7eb69607111e6780c2d6c) and [console](https://github.com/kdrag0n/proton_kernel_redbull/commit/2887bed510ad89d33801e5f898fbf571ae808370)
+- Minimize kernel size in order to reduce the total flasher size: [example](https://github.com/kdrag0n/proton_kernel_redbull/commit/9d4dc6e73b08)
+- Framebuffer console for live feedback, otherwise it just looks like the flasher crashed even if it succeeded: [example framebuffer](https://github.com/kdrag0n/proton_kernel_redbull/commit/e5ad9481e170) and [console](https://github.com/kdrag0n/proton_kernel_redbull/commit/3da0d37199af)
 
 If using a console:
 
