@@ -29,12 +29,12 @@ DTBO flashing is not currently supported.
 The flashed kernel payload should not be changed in any way. However, the flasher itself uses a kernel because it is essentially a custom bootable recovery. No changes to the kernel are strictly necessary, but they improve the user experience significantly:
 
 - For easier debugging on newer kernels (4.14+): add `printk.devkmsg=on` to cmdline ([example](https://github.com/kdrag0n/proton_kernel_redbull/commit/bc1bbca33cb2b08a267589847bf70ec56d64e542))
-- Minimize kernel size in order to reduce the total flasher size: [example](https://github.com/kdrag0n/proton_kernel_redbull/commit/9d4dc6e73b08)
-- Framebuffer console for live feedback, otherwise it just looks like the flasher crashed even if it succeeded: [example framebuffer](https://github.com/kdrag0n/proton_kernel_redbull/commit/e5ad9481e170) and [console](https://github.com/kdrag0n/proton_kernel_redbull/commit/3da0d37199af)
+- Minimize kernel size in order to reduce the total flasher size: [example](https://github.com/kdrag0n/proton_kernel_redbull/commit/e192c2c8f1c8)
+- Framebuffer console for live feedback, otherwise it just looks like the flasher crashed even if it succeeded: [example framebuffer](https://github.com/kdrag0n/proton_kernel_redbull/commit/4a161a319e57) and [console](https://github.com/kdrag0n/proton_kernel_redbull/commit/c6c2671096ed)
 
 If using a console:
 
-- Silence kernel logs: add `quiet` to cmdline ([example](https://github.com/kdrag0n/proton_kernel_redbull/commit/9a1d781c435d2bbcbe274ae91eda81f621c3a93a)) and set loglevel ([example](https://github.com/kdrag0n/proton_kernel_redbull/commit/e9c11c12f9fee19c88fa8b81d931410879b028d6))
+- Silence kernel logs: add `quiet` to cmdline ([example](https://github.com/kdrag0n/proton_kernel_redbull/commit/aaa681fc81a6)) and set loglevel ([example](https://github.com/kdrag0n/proton_kernel_redbull/commit/1a70285c1542))
 - Larger font for legibility: Terminus 16x32 ([example](https://github.com/kdrag0n/proton_kernel_redbull/commit/de9ada794065b2076739b22a4439f35d64d66171))
 
 See the changes made to the [Pixel 5 kernel](https://github.com/kdrag0n/proton_kernel_redbull/commits/alpine) for more information.
